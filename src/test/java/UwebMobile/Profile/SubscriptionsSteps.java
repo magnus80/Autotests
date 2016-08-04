@@ -4,9 +4,8 @@ import Autotest.common.utils.Attacher;
 import Autotests.UWeb.pages.APIHelper;
 import Autotests.UWeb.pages.Page_Login;
 import Autotests.UWeb.pages.Page_Profile;
+import org.testng.Assert;
 import ru.yandex.qatools.allure.annotations.Step;
-
-import java.util.List;
 
 public class SubscriptionsSteps extends ProfileHelper {
 
@@ -28,7 +27,8 @@ public class SubscriptionsSteps extends ProfileHelper {
             + "У вас нет ни одной подписки")
     public void noSubscriptions() throws Exception {
         //List<String> subs=api.prepaidAddBalance(login,password,ctn);
-        Attacher.attachText(pProfile.noSubscriptions(),"");
+        Assert.assertTrue(pProfile.isSubscribesBlockDisplayed(), "Элемент не найден");
+        Attacher.attachText(pProfile.noSubscriptions(), "Текст блока");
     }
 
     @Step("Вход пользователем с подписками (метод отдает непустой массив)"

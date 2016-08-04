@@ -273,6 +273,12 @@ public class Page_Profile extends Helper_my {
     }
 
 
+    public boolean isSubscribesBlockDisplayed()
+    {
+        return $(subscribes_block_link).isDisplayed();
+    }
+
+
     /**
      * Клик по ссылке блока с подписками
      */
