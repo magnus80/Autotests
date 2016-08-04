@@ -1,0 +1,82 @@
+[INFO] Error stacktraces are turned on.
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective settings
+[WARNING] expected START_TAG or END_TAG not TEXT (position: TEXT seen ...mojo" if these are not already contained in the list.\n   |-->\n  <p... @78:5)  @ c:\apache-maven-3.3.9\conf\settings.xml, line 78, column 5
+[WARNING] 
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building UWeb_tests 2.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ Autotests ---
+[INFO] Deleting c:\Devel\autotests\autotests-UWeb-Mobile\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ Autotests ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 294 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:compile (default-compile) @ Autotests ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to c:\Devel\autotests\autotests-UWeb-Mobile\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ Autotests ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\Devel\autotests\autotests-UWeb-Mobile\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:testCompile (default-testCompile) @ Autotests ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to c:\Devel\autotests\autotests-UWeb-Mobile\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ Autotests ---
+[INFO] Surefire report directory: c:\Devel\autotests\autotests-UWeb-Mobile\target\surefire-reports
+[WARNING] file.encoding cannot be set as system property, use <argLine>-Dfile.encoding=...<argLine> instead
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running ccbo.agregation.MessagesTests
+Configuring TestNG with: TestNG652Configurator
+Init Selenium 2.48.2
+
+mUserAgent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36
+
+deleteBeforeAllTests - OK
+
+
+
+==========================================
+TEST STARTED: �������� ����� � ��
+STEP [17:26:23]: step0[0894990096]
+
+STEP [17:26:25]  --------------------------- end
+STEP [17:26:26]: step1[0894990096, Qwerty4]
+STEP [17:27:06]  --------------------------- end
+STEP [17:27:06]: step2[���������� ������]
+balance=99350.16
+STEP [17:27:06]  --------------------------- end
+STEP [17:27:07]: step3
+STEP [17:27:07]  --------------------------- end
+TEST FINISHED: �������� ����� � ��
+==========================================
+����� ������ - 1 | �������� - 0 | ����� �������� - 1 | ����� - 0
+
+
+deleteAfterAllTests - OK
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 68.779 sec - in ccbo.agregation.MessagesTests
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default) @ Autotests ---
+[INFO] Skipping execution of surefire because it has already been run for this configuration
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:24 min
+[INFO] Finished at: 2016-06-24T17:27:10+03:00
+[INFO] Final Memory: 22M/183M
+[INFO] ------------------------------------------------------------------------
