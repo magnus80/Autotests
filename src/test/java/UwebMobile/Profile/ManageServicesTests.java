@@ -10,7 +10,7 @@ import ru.yandex.qatools.properties.annotations.Property;
 
 import static com.codeborne.selenide.Selenide.close;
 
-public class ManageServicesеTests extends BaseScenario {
+public class ManageServicesTests extends BaseScenario {
 
     static {
         PropertyLoaderStatic.populate(ManageServicesSteps.class);

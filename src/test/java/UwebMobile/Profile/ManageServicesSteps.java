@@ -20,9 +20,9 @@ public class ManageServicesSteps extends ProfileHelper {
     }
 
 
-    @Step(""
+    @Step("Получение списка услуг по АПИ"
             + "\nОЖИДАЕТСЯ:\n"
-            + "Вход в ЛК и скрытие бонусов")
+            + "")
     public void getServiceList(String login, String password,String ctn) throws Exception {
             api.serviceList(login,password,ctn);
 
