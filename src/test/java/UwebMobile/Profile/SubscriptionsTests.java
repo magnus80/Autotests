@@ -38,7 +38,7 @@ public class SubscriptionsTests extends BaseScenario {
     @Features("Подписки")
     @Stories({"Sanity", "Профиль"})
     @Test(groups = {"All_tests", "UWebtest"})
-    public void test_getAdditionalBalances() throws Exception {
+    public void test_Subscriptions() throws Exception {
         subscriptionsSteps.login(LOGIN_NO_SUBS,PASSWORD);
         subscriptionsSteps.noSubscriptions();
         subscriptionsSteps.logout();
