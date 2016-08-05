@@ -193,8 +193,7 @@ public class Page_Profile extends Helper_my {
      * @return
      */
     public String getCurrentPPR() {
-        String pp1 = $(prepaid_text).getText();
-        return pp1;
+        return $(prepaid_text).getText();
     }
 
     /**
@@ -301,5 +300,15 @@ public class Page_Profile extends Helper_my {
             return "Текст не соответствует";
         }
         return "Текст соответствует";
+    }
+
+    // ссылка Подключенные услуги
+    @Property("Connected_services")
+    @Use(ByConverter.class)
+    private static By link_Connected_services;
+
+    public boolean isConnectedServicesDisplayed()
+    {
+        return $(link_Connected_services).isDisplayed();
     }
 }

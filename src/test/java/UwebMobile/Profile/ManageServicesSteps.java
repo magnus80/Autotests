@@ -3,6 +3,7 @@ package UwebMobile.Profile;
 import Autotests.UWeb.pages.APIHelper;
 import Autotests.UWeb.pages.Page_Login;
 import Autotests.UWeb.pages.Page_Profile;
+import org.testng.Assert;
 import ru.yandex.qatools.allure.annotations.Step;
 
 public class ManageServicesSteps extends ProfileHelper {
@@ -24,8 +25,8 @@ public class ManageServicesSteps extends ProfileHelper {
             + "\nОЖИДАЕТСЯ:\n"
             + "")
     public void getServiceList(String login, String password,String ctn) throws Exception {
-            api.serviceList(login,password,ctn);
-
+        Assert.assertTrue(pProfile.isConnectedServicesDisplayed(),"Элемент не найден");
+        //api.serviceList(login,password,ctn);
     }
 
 
