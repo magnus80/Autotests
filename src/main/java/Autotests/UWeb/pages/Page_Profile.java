@@ -311,4 +311,21 @@ public class Page_Profile extends Helper_my {
     {
         return $(link_Connected_services).isDisplayed();
     }
+
+    // сумма баланса
+    @Property("Balance")
+    @Use(ByConverter.class)
+    private static By balance_sum;
+
+    public String colorSumFont() {
+        $(balance_sum).getCssValue("color");
+        String red="rgba(179,23,54,1)";
+        if ($(balance_sum).getCssValue("color")==red){
+            return "Цвет соответствует";
+        }
+        String black="rgba(40,40,40,1)";
+
+
+    }
+
 }
