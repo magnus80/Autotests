@@ -1,15 +1,18 @@
 package UwebMobile.Profile;
 
 
-import Autotests.UWeb.pages.APIHelper;
 import Autotests.UWeb.pages.Page_Login;
 import Autotests.UWeb.pages.Page_Profile;
 import ru.yandex.qatools.allure.annotations.Step;
+
+import static org.testng.Assert.assertTrue;
 
 public class BillInfoSteps extends ProfileHelper {
 
     public Page_Login pLogin = new Page_Login();
     public Page_Profile pProfile = new Page_Profile();
+    //String colour;
+
 
     @Step("Вход в ЛК по логину и паролю {0} {1}"
             + "\nОЖИДАЕТСЯ:\n"
@@ -27,11 +30,13 @@ public class BillInfoSteps extends ProfileHelper {
         pProfile.logOut();
     }
 
-    @Step("Выход из ЛК"
+    @Step("Проверка цвета баланса {0}"
             + "\nОЖИДАЕТСЯ:\n"
-            + "ЛК закрыт.")
-    public void getColors() throws Exception {
-        pProfile.colorSumFont();
+            + "Цвет баланса корректный")
+    public void getColors(String colour) throws Exception {
+        pProfile.colorSumFont(colour);
+        //assertThat(pProfile.colorSumFont(colour),containsString("Цвет шрифта соответствует"));
+        assertTrue(pProfile.colorSumFont(colour),"Цвет шрифта соответствует");
     }
 
 }

@@ -272,8 +272,7 @@ public class Page_Profile extends Helper_my {
     }
 
 
-    public boolean isSubscribesBlockDisplayed()
-    {
+    public boolean isSubscribesBlockDisplayed() {
         return $(subscribes_block_link).isDisplayed();
     }
 
@@ -282,12 +281,12 @@ public class Page_Profile extends Helper_my {
      * Клик по ссылке блока с подписками
      */
 
-    public void subscriptionsBlock(){
+    public void subscriptionsBlock() {
         $(subscribes_block_link).click();
 
         waitForElementToBePresent(no_subscribes_message);
         //waitForElementToDisappear(loadform);
-        $$(no_subscribes_message).get(0).waitUntil(be(enabled),(long)IMPLICITLY_WAIT);
+        $$(no_subscribes_message).get(0).waitUntil(be(enabled), (long) IMPLICITLY_WAIT);
         $(subscribes_block_link).scrollTo();
     }
 
@@ -307,25 +306,32 @@ public class Page_Profile extends Helper_my {
     @Use(ByConverter.class)
     private static By link_Connected_services;
 
-    public boolean isConnectedServicesDisplayed()
-    {
+    public boolean isConnectedServicesDisplayed() {
         return $(link_Connected_services).isDisplayed();
     }
+
 
     // сумма баланса
     @Property("Balance")
     @Use(ByConverter.class)
     private static By balance_sum;
 
-    public String colorSumFont() {
+    /**
+     * Проверка цвета суммы баланса
+     * @param colour
+     * @return
+     */
+    public boolean colorSumFont(String colour) {
         $(balance_sum).getCssValue("color");
-        String red="rgba(179,23,54,1)";
-        if ($(balance_sum).getCssValue("color")==red){
-            return "Цвет соответствует";
+        String red = "rgba(179,23,54,1)";
+        if ($(balance_sum).getCssValue("color") == red) {
+            return true;
         }
-        String black="rgba(40,40,40,1)";
-
-
+        String black = "rgba(40,40,40,1)";
+        if ($(balance_sum).getCssValue("color") == black) {
+            return true;
+        }
+        return false;
     }
 
 }

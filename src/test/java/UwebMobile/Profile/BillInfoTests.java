@@ -13,38 +13,43 @@ import ru.yandex.qatools.properties.annotations.Property;
 import ru.yandex.qatools.properties.annotations.Resource;
 
 import static com.codeborne.selenide.Selenide.close;
+import static java.awt.Color.black;
 
 @Resource.Classpath("Properties.xlsx")
 @WithStatic(ExcelPropertyProviderStatic.class)
 @FromSheet.Common("Profile")
 
-public class BillInfoTests extends BaseScenario{
+public class BillInfoTests extends BaseScenario {
 
-        static {
-            PropertyLoaderStatic.populate(UwebMobile.Profile.BillInfoTests.class);
-        }
+    static {
+        PropertyLoaderStatic.populate(UwebMobile.Profile.BillInfoTests.class);
+    }
 
-        public BillInfoSteps billInfoSteps =new BillInfoSteps();
+    public BillInfoSteps billInfoSteps = new BillInfoSteps();
 
-        @Property("Password")
-        private static String PASSWORD;
-        @Property("Login_PP_Prepaid")
-        private static String LOGIN_RED;
-        @Property("Login_services")
-        private static String LOGIN_BLACK;
-        @Property("CTN_PP_PREPAID")
-        private static String CTN_PP_PREPAID;
+    public String black, red;
+    @Property("Password")
+    private static String PASSWORD;
+    @Property("Login_PP_Prepaid")
+    private static String LOGIN_RED;
+    @Property("Login_services")
+    private static String LOGIN_BLACK;
+    @Property("CTN_PP_PREPAID")
+    private static String CTN_PP_PREPAID;
 
-        @Title("Профиль")
-        @Features("Получение инфо о состоянии счёта")
-        @Stories({"Sanity", "Профиль"})
-        @Test(groups = {"All_tests", "UWebtest"})
-        public void test_BillsInfo() throws Exception {
+    @Title("Профиль")
+    @Features("Получение инфо о состоянии счёта")
+    @Stories({"Sanity", "Профиль"})
+    @Test(groups = {"All_tests", "UWebtest"})
+    public void test_BillsInfo() throws Exception {
       /*      billInfoSteps.login(LOGIN_RED,PASSWORD);
             billInfoSteps.getColors();
             billInfoSteps.logout();*/
-            billInfoSteps.login(LOGIN_BLACK,PASSWORD);
-            billInfoSteps.getColors();
-            close();
-        }
+        billInfoSteps.login(LOGIN_BLACK, PASSWORD);
+        billInfoSteps.getColors(black);
+        billInfoSteps.logout();
+        billInfoSteps.login(LOGIN_RED, PASSWORD);
+        billInfoSteps.getColors(red);
+        close();
+    }
 }
