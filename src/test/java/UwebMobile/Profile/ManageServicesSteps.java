@@ -24,11 +24,10 @@ public class ManageServicesSteps extends ProfileHelper {
     @Step("Получение списка услуг по АПИ"
             + "\nОЖИДАЕТСЯ:\n"
             + "")
-    public void getServiceList(String login, String password,String ctn) throws Exception {
-        Assert.assertTrue(pProfile.isConnectedServicesDisplayed(),"Элемент не найден");
+    public void getServiceList(String login, String password, String ctn) throws Exception {
+        Assert.assertTrue(pProfile.isConnectedServicesDisplayed(), "Элемент не найден");
         //api.serviceList(login,password,ctn);
     }
-
 
     @Step("Выход из ЛК"
             + "\nОЖИДАЕТСЯ:\n"

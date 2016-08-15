@@ -318,20 +318,17 @@ public class Page_Profile extends Helper_my {
 
     /**
      * Проверка цвета суммы баланса
+     *
      * @param colour
      * @return
      */
-    public boolean colorSumFont(String colour) {
-        $(balance_sum).getCssValue("color");
-        String red = "rgba(179,23,54,1)";
-        if ($(balance_sum).getCssValue("color") == red) {
-            return true;
-        }
-        String black = "rgba(40,40,40,1)";
-        if ($(balance_sum).getCssValue("color") == black) {
+    public String colorSumFont(String colour) {
+        return $(balance_sum).getCssValue("color");
+        /*if ($(balance_sum).getCssValue("color") != colour) {
             return true;
         }
         return false;
+    }*/
     }
 
 }
