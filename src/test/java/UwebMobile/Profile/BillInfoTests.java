@@ -54,6 +54,7 @@ public class BillInfoTests extends BaseScenario {
         billInfoSteps.logout();
         billInfoSteps.login(LOGIN_RED, PASSWORD);
         billInfoSteps.getColors(red);
+        billInfoSteps.getAutooplata();
         close();
     }
 }

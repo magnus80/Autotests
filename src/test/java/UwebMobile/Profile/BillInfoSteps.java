@@ -3,6 +3,7 @@ package UwebMobile.Profile;
 
 import Autotests.UWeb.pages.Page_Login;
 import Autotests.UWeb.pages.Page_Profile;
+import org.hamcrest.Matcher;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -12,7 +13,6 @@ public class BillInfoSteps extends ProfileHelper {
 
     public Page_Login pLogin = new Page_Login();
     public Page_Profile pProfile = new Page_Profile();
-
 
     @Step("Вход в ЛК по логину и паролю {0} {1}"
             + "\nОЖИДАЕТСЯ:\n"
@@ -35,8 +35,19 @@ public class BillInfoSteps extends ProfileHelper {
             + "Цвет баланса корректный")
     public void getColors(String colour) throws Exception {
         pProfile.colorSumFont(colour);
-        assertThat(pProfile.colorSumFont(colour),containsString(colour));
+        assertThat(pProfile.colorSumFont(colour), containsString(colour));
         //assertTrue(pProfile.colorSumFont(colour),"Цвет шрифта соответствует");
     }
+
+    @Step("Подключена автооплата"
+            + "\nОЖИДАЕТСЯ:\n"
+            + "Отображается информер")
+    public void getAutooplata() throws Exception {
+        assertThat("Блок присутствует", pProfile.isConnectedServicesBlockDisplayed());
+        assertThat("Ссылка присутствует", pProfile.isConnectedServicesLinkDisplayed());
+        assertThat(pProfile.Autooplata(0),containsString("Автоплатёж"));
+        assertThat(pProfile.Autooplata(1),containsString("Автоматическое"));
+    }
+
 
 }

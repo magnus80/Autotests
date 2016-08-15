@@ -301,20 +301,24 @@ public class Page_Profile extends Helper_my {
         return "Текст соответствует";
     }
 
-    // ссылка Подключенные услуги
-    @Property("Connected_services")
+    /**
+     * Блок и ссылка Подключенные услуги
+     */
+
+    @Property("Connected_services_link")
     @Use(ByConverter.class)
     private static By link_Connected_services;
+    @Property("Connected_services")
+    @Use(ByConverter.class)
+    private static By Connected_services_block;
 
-    public boolean isConnectedServicesDisplayed() {
-        return $(link_Connected_services).isDisplayed();
+    public boolean isConnectedServicesBlockDisplayed() {
+        return $(Connected_services_block).isDisplayed();
     }
 
-
-    // сумма баланса
-    @Property("Balance")
-    @Use(ByConverter.class)
-    private static By balance_sum;
+    public boolean isConnectedServicesLinkDisplayed() {
+        return $(link_Connected_services).isDisplayed();
+    }
 
     /**
      * Проверка цвета суммы баланса
@@ -322,6 +326,11 @@ public class Page_Profile extends Helper_my {
      * @param colour
      * @return
      */
+    // сумма баланса
+    @Property("Balance")
+    @Use(ByConverter.class)
+    private static By balance_sum;
+
     public String colorSumFont(String colour) {
         return $(balance_sum).getCssValue("color");
         /*if ($(balance_sum).getCssValue("color") != colour) {
@@ -330,5 +339,20 @@ public class Page_Profile extends Helper_my {
         return false;
     }*/
     }
+
+    /**
+     *
+     * @return
+     */
+
+    // сумма баланса
+    @Property("Autooplata")
+    @Use(ByConverter.class)
+    private static By autooplata;
+
+    public String Autooplata(int i){
+       return $$(autooplata).get(i).getText();
+    }
+
 
 }

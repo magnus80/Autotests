@@ -25,7 +25,7 @@ public class ManageServicesSteps extends ProfileHelper {
             + "\nОЖИДАЕТСЯ:\n"
             + "")
     public void getServiceList(String login, String password, String ctn) throws Exception {
-        Assert.assertTrue(pProfile.isConnectedServicesDisplayed(), "Элемент не найден");
+        Assert.assertTrue(pProfile.isConnectedServicesBlockDisplayed(), "Элемент не найден");
         //api.serviceList(login,password,ctn);
     }
 
