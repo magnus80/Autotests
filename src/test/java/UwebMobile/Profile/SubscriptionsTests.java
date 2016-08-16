@@ -23,7 +23,7 @@ public class SubscriptionsTests extends BaseScenario {
         PropertyLoaderStatic.populate(SubscriptionsTests.class);
     }
 
-    public SubscriptionsSteps subscriptionsSteps =new SubscriptionsSteps();
+    public SubscriptionsSteps subscriptionsSteps = new SubscriptionsSteps();
 
     @Property("Password")
     private static String PASSWORD;
@@ -39,9 +39,12 @@ public class SubscriptionsTests extends BaseScenario {
     @Stories({"Sanity", "Профиль"})
     @Test(groups = {"All_tests", "UWebtest"})
     public void test_Subscriptions() throws Exception {
-        subscriptionsSteps.login(LOGIN_NO_SUBS,PASSWORD);
+        subscriptionsSteps.login(LOGIN_NO_SUBS, PASSWORD);
         subscriptionsSteps.noSubscriptions();
         subscriptionsSteps.logout();
+        subscriptionsSteps.login(LOGIN_SUBS, PASSWORD);
+        subscriptionsSteps.haveSubscriptions();
+        subscriptionsSteps.turnOffSubscriptions();
         close();
     }
 

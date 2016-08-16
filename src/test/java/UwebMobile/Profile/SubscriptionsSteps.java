@@ -4,8 +4,9 @@ import Autotest.common.utils.Attacher;
 import Autotests.UWeb.pages.APIHelper;
 import Autotests.UWeb.pages.Page_Login;
 import Autotests.UWeb.pages.Page_Profile;
-import org.testng.Assert;
 import ru.yandex.qatools.allure.annotations.Step;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class SubscriptionsSteps extends ProfileHelper {
 
@@ -27,16 +28,26 @@ public class SubscriptionsSteps extends ProfileHelper {
             + "У вас нет ни одной подписки")
     public void noSubscriptions() throws Exception {
         //List<String> subs=api.prepaidAddBalance(login,password,ctn);
-        Assert.assertTrue(pProfile.isSubscribesBlockDisplayed(), "Элемент не найден");
+        assertThat("Блок присутствует, подписок нет", pProfile.isSubscribesBlockDisplayed());
+        pProfile.noSubscriptionsBlock();
         Attacher.attachText(pProfile.noSubscriptions(), "Текст блока");
     }
 
     @Step("Вход пользователем с подписками (метод отдает непустой массив)"
             + "\nОЖИДАЕТСЯ:\n"
-            + "У вас нет ни одной подписки")
+            + "Есть подписки")
     public void haveSubscriptions() throws Exception {
         //List<String> subs=api.prepaidAddBalance(login,password,ctn);
+        assertThat("Блок присутствует, подписки есть", pProfile.isSubscriptionsDisplayed());
+    }
 
+    @Step("Отключение подписки"
+            + "\nОЖИДАЕТСЯ:\n"
+            + "Подписка отключена")
+    public void turnOffSubscriptions() throws Exception {
+        //List<String> subs=api.prepaidAddBalance(login,password,ctn);
+        pProfile.turnOffSub();
+        pProfile.turningOffSub();
     }
 
     @Step("Выход из ЛК"
